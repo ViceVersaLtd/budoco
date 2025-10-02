@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net5.0/budoco.dll",
+            "program": "${workspaceFolder}/bin/Debug/net9.0/budoco.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,

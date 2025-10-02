@@ -10,7 +10,7 @@ Table of Contents
 
 Budoco is a Issue (Bug/Task/Ticket) tracking system.
 
-Budoco is built using .NET 5 ("dotnet core") and PostgreSQL.
+Budoco is built using .NET 9 ("dotnet core") and PostgreSQL.
 
 Budoco is a rewrite of **BU**gtracker.NET (aka "btnet"), but this time on **DO**tnet **CO**re, hence the name BU-DO-CO. Good things about Budoco which were also true of btnet:
 
@@ -33,7 +33,7 @@ Differences from btnet:
 * Btnet allows for more customization, at least for now. 
 * Btnet has a more complicated permission system. Too comlicated to use without worry.
 * Just in general, btnet tried to please everybody, whereas Budoco is just trying to please about half of you.
-* Btnet only runs on Windows. Budoco runs wherever .NET 5 runs. I've been using Linux (Ubuntu).
+* Btnet only runs on Windows. Budoco runs wherever .NET 9 runs. I've been using Linux (Ubuntu).
 * Btnet uses MS SQL Server. Budoco uses PostgreSQL.
 
  More about btnet here; <a href="http://ifdefined.com/bugtrackernet.html">BugTracker.NET home page</a>

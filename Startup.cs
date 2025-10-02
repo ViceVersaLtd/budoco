@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http.Extensions;
 using Serilog;
 using RazorPartialToString.Services;
 using Microsoft.AspNetCore.HttpOverrides;
-using Npgsql.Logging;
+
 using System.Linq;
 
 namespace budoco
@@ -22,8 +22,7 @@ namespace budoco
 
             bd_util.log(Configuration["Budoco:DebugWhatEnvIsThis"]);
 
-            //NpgsqlLogManager.Provider = new ConsoleLoggingProvider(NpgsqlLogLevel.Debug, false, false);
-            NpgsqlLogManager.Provider = new budoco_pg.bd_pg_log_provider();
+            // Npgsql 9.x uses Microsoft.Extensions.Logging automatically
 
             bd_db.update_db_schema(env.ContentRootPath);
 
