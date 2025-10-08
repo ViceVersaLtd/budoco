@@ -20,6 +20,9 @@ namespace budoco
             bd_util.log("Startup");
             Configuration = configuration;
 
+            // Initialize bd_config with ASP.NET Core configuration
+            bd_config.set_configuration(configuration);
+
             bd_util.log(Configuration["Budoco:DebugWhatEnvIsThis"]);
 
             // Npgsql 9.x uses Microsoft.Extensions.Logging automatically

@@ -1,12 +1,16 @@
-﻿/* 
+/* 
 
 This file demonstrates overriding the styles in budoco.css.
 Especially useful for when arranging the custom fields on the issue page.
 
-See budoco_config_active.txt, the settings:
+See appsettings.json, the settings:
 
-UseCustomCss: 1
-CustomCssFilename: custom_css_example.css
+"Budoco": {
+  "Application": {
+    "UseCustomCss": true,
+    "CustomCssFilename": "custom_css_example.css"
+  }
+}
 
 */
 

@@ -1,0 +1,42 @@
+@page
+@model budoco.Pages.Admin.DatabaseTestModel
+@{
+    ViewData["Title"] = "Database Compatibility Test";
+    Layout = "_layout_logged_in";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Database Compatibility Test</h2>
+            <p>This page tests the cross-database compatibility of SQL operations.</p>
+            
+            @if (!string.IsNullOrEmpty(Model.TestResults))
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Test Results</h5>
+                    </div>
+                    <div class="card-body">
+                        <pre style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; font-family: 'Courier New', monospace; font-size: 12px;">@Model.TestResults</pre>
+                    </div>
+                </div>
+            }
+            
+            <form method="post">
+                <button type="submit" class="btn btn-primary">Run Database Compatibility Tests</button>
+            </form>
+            
+            <div class="mt-4">
+                <h5>What this test checks:</h5>
+                <ul>
+                    <li>SQL Builder methods (SELECT with LIMIT, INSERT with RETURN ID)</li>
+                    <li>Boolean literal generation</li>
+                    <li>Current timestamp generation</li>
+                    <li>Schema Builder column definitions</li>
+                    <li>Database connection and basic query execution</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,10 +7,13 @@
 # Database 
 ###############################################################################
 
-DbServer: 127.0.0.1
+# Database type: "PostgreSQL" or "SqlServer"
+DbType: SqlServer
+
+DbServer: (localdb)\\MSSQLLocalDB
 DbDatabase: budoco
-DbUser: postgres
-DbPassword: YOUR_PASSWORD   <<< CHANGE THIS
+DbUser: 
+DbPassword: 
 
 ###############################################################################
 # SMTP - Outgoing email
@@ -26,8 +29,8 @@ DbPassword: YOUR_PASSWORD   <<< CHANGE THIS
 # Using gmail as an example
 SmtpHost: smtp.gmail.com
 SmtpPort: 465
-SmtpUser: YOUR_ACCOUNT@gmail.com   <<<  CHANGE THIS
-SmtpPassword: YOUR_PASSWORD    <<<  CHANGE THIS
+SmtpUser: test@example.com
+SmtpPassword: testpassword
 
 # I used yahoo mail:
 # SmtpHost: smtp.mail.yahoo.com
@@ -36,9 +39,7 @@ SmtpPassword: YOUR_PASSWORD    <<<  CHANGE THIS
 # This is for the links in emails that the app sends.
 # For example, for new user registration, password reset.
 
-WebsiteUrlRootWithoutSlash: https://YOURDOMAIN.COM   <<< CHANGE THIS
-# or
-# WebsiteUrlRootWithoutSlash: http://localhost:5000
+WebsiteUrlRootWithoutSlash: http://localhost:5000
 
 ###############################################################################
 # IMAP - Incoming email 

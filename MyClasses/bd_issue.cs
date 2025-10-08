@@ -42,7 +42,9 @@ namespace budoco
             }
             else
             {
-                object obj = bd_db.exec_scalar("select og_id from organizations where og_is_default is true order by og_name limit 1");
+                var base_sql = "select og_id from organizations where og_is_default = " + bd_sql_builder.GetBooleanLiteral(true) + " order by og_name";
+                var sql_with_limit = bd_sql_builder.BuildSelectWithLimit(base_sql, 1);
+                object obj = bd_db.exec_scalar(sql_with_limit);
                 if (obj is not null)
                 {
                     i_organization = (int)obj;
@@ -244,8 +246,9 @@ namespace budoco
             if (bd_config.get("CustomFieldEnabled" + number) == 0)
                 return 0;
 
-            string sql = "select c$_id from custom_$ where c$_is_default is true order by c$_name limit 1";
-            sql = sql.Replace("$", number);
+            var base_sql = "select c$_id from custom_$ where c$_is_default = " + bd_sql_builder.GetBooleanLiteral(true) + " order by c$_name";
+            base_sql = base_sql.Replace("$", number);
+            string sql = bd_sql_builder.BuildSelectWithLimit(base_sql, 1);
 
             object obj = bd_db.exec_scalar(sql);
 

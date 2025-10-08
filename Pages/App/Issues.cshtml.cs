@@ -132,10 +132,11 @@ namespace budoco.Pages
         void use_default_query()
         {
             // first query
-            DataRow query_row = bd_db.get_datarow(
-                @"select qu_id, qu_sql from queries 
-                where qu_is_active
-                order by qu_is_default desc, qu_name asc limit 1");
+            var base_sql = @"select qu_id, qu_sql from queries 
+                where qu_is_active = " + bd_sql_builder.GetBooleanLiteral(true) + @"
+                order by qu_is_default desc, qu_name asc";
+            var sql_with_limit = bd_sql_builder.BuildSelectWithLimit(base_sql, 1);
+            DataRow query_row = bd_db.get_datarow(sql_with_limit);
             query_id = (int)query_row["qu_id"];
             sort = -1;
             page = 1;

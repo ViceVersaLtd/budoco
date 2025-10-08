@@ -79,10 +79,16 @@ namespace budoco.Pages
 
             if (id == 0)
             {
-                var insert_sql = @"insert into queries 
-                (qu_name, qu_description, qu_sql, qu_is_default, qu_is_active)
-                values(@qu_name, @qu_description, @qu_sql, @qu_is_default, @qu_is_active)
-                returning qu_id";
+                var columns = new Dictionary<string, dynamic>
+                {
+                    ["qu_name"] = "",
+                    ["qu_description"] = "",
+                    ["qu_sql"] = "",
+                    ["qu_is_default"] = "",
+                    ["qu_is_active"] = ""
+                };
+
+                var insert_sql = bd_sql_builder.BuildInsertWithReturnId("queries", columns, "qu_id");
 
                 id = (int)bd_db.exec_scalar(insert_sql, GetValuesDict());
                 bd_util.set_flash_msg(HttpContext, bd_util.CREATE_WAS_SUCCESSFUL);

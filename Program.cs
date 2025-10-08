@@ -13,19 +13,43 @@ namespace budoco
 {
     public class Program
     {
+        private static LogEventLevel ParseLogLevel(dynamic value, LogEventLevel defaultLevel)
+        {
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
+                return defaultLevel;
+
+            string stringValue = value.ToString();
+            if (Enum.TryParse<LogEventLevel>(stringValue, true, out LogEventLevel result))
+                return result;
+
+            // Try parsing as integer
+            if (int.TryParse(stringValue, out int intValue) && Enum.IsDefined(typeof(LogEventLevel), intValue))
+                return (LogEventLevel)intValue;
+
+            return defaultLevel;
+        }
 
         public static int Main(string[] args)
         {
             Console.WriteLine("Main"); // here on purpose
 
-            // We have to load_config first to get Serilog's folder
-            bd_config.load_config();
+            // Build a temporary configuration to initialize bd_config early
+            var tempConfig = new ConfigurationBuilder()
+                .SetBasePath(System.IO.Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
+                .AddEnvironmentVariables()
+                .Build();
+
+            // Initialize bd_config with the temporary configuration
+            bd_config.set_configuration(tempConfig);
 
             string log_file_location = bd_config.get(bd_config.LogFileFolder) + "/budoco_log_.txt";
 
-            LogEventLevel microsoft_level = (LogEventLevel)bd_config.get(bd_config.DebugLogLevelMicrosoft);
-            LogEventLevel budoco_lovel = (LogEventLevel)bd_config.get(bd_config.DebugLogLevelBudoco);
-            LogEventLevel postgres_level = (LogEventLevel)bd_config.get(bd_config.DebugLogLevelPostgres);
+            // Parse log levels with fallback to default values
+            LogEventLevel microsoft_level = ParseLogLevel(bd_config.get(bd_config.DebugLogLevelMicrosoft), LogEventLevel.Warning);
+            LogEventLevel budoco_lovel = ParseLogLevel(bd_config.get(bd_config.DebugLogLevelBudoco), LogEventLevel.Information);
+            LogEventLevel postgres_level = ParseLogLevel(bd_config.get(bd_config.DebugLogLevelPostgres), LogEventLevel.Warning);
 
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose()

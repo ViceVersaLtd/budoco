@@ -74,10 +74,17 @@ namespace budoco.Pages
                 is_report_only = true;
 
             // create user
-            sql = @"insert into users 
-                    (us_username, us_email_address, us_password, us_is_active, us_is_report_only, us_organization) 
-                    values(@us_username, @us_email_address, @us_password, @us_is_active, @us_is_report_only, @us_organization) 
-                    returning us_id";
+            var columns = new Dictionary<string, dynamic>
+            {
+                ["us_username"] = "",
+                ["us_email_address"] = "",
+                ["us_password"] = "",
+                ["us_is_active"] = "",
+                ["us_is_report_only"] = "",
+                ["us_organization"] = ""
+            };
+
+            sql = bd_sql_builder.BuildInsertWithReturnId("users", columns, "us_id");
 
             dict["@us_username"] = (string)dr_registration["rr_username"];
             dict["@us_email_address"] = (string)dr_registration["rr_email_address"];

@@ -143,17 +143,194 @@ Both scripts start by destroying whatever data is currently in the budoco databa
 
 ### 4) Configure Budoco
 
-Copy the example config file. The copy must be named "budoco_config_active.txt"
+Budoco now uses the standard ASP.NET Core configuration system with `appsettings.json` files. This provides better integration with modern .NET applications and supports environment-specific configurations.
 
+#### Configuration Files
+
+- **`appsettings.json`** - Base configuration settings
+- **`appsettings.Development.json`** - Development environment overrides
+- **`appsettings.Production.json`** - Production environment overrides
+
+The application automatically loads the appropriate configuration based on the `ASPNETCORE_ENVIRONMENT` environment variable.
+
+#### Database Configuration
+
+Configure your database connection strings in the `ConnectionStrings` section:
+
+```json
+{
+  "ConnectionStrings": {
+    "PostgreSQL": "Host=localhost;Database=budoco;Username=postgres;Password=yourpassword",
+    "SqlServer": "Server=(localdb)\\MSSQLLocalDB;Database=budoco;Trusted_Connection=true;MultipleActiveResultSets=true"
+  },
+  "Budoco": {
+    "DatabaseType": "PostgreSQL"
+  }
+}
 ```
-cp budoco_config_example.txt budoco_config_active.txt
+
+#### Complete Configuration Reference
+
+All Budoco-specific settings are organized under the `Budoco` section:
+
+##### Application Settings
+```json
+{
+  "Budoco": {
+    "Application": {
+      "AppName": "Budoco Issue Tracker",
+      "WebsiteUrlRootWithoutSlash": "http://localhost:5000",
+      "UseCustomCss": false,
+      "CustomCssFilename": "custom.css",
+      "RowsPerPage": 25,
+      "DateFormat": "yyyy-MM-dd",
+      "UseDeveloperExceptionPage": false
+    }
+  }
+}
 ```
 
-Open the new copy and edit it according to the instructions in it. At a minimum, change the database username and password. The hardest part for me was getting my emails to work using my gmail and yahoo accounts, because there are extra steps you have to do on their websites to allow unfamiliar apps to connect to their SMTP servers.
+##### Email Configuration
+```json
+{
+  "Budoco": {
+    "Email": {
+      "Smtp": {
+        "Host": "smtp.gmail.com",
+        "Port": 465,
+        "User": "your-email@gmail.com",
+        "Password": "your-app-password"
+      },
+      "Imap": {
+        "Host": "imap.gmail.com",
+        "Port": 993,
+        "User": "your-email@gmail.com",
+        "Password": "your-app-password"
+      },
+      "OutgoingEmailDisplayName": "Budoco Support",
+      "IssueEmailPreamble": "Reply to this email directly or view issue on Budoco at $URL",
+      "EnableIncomingEmail": false,
+      "EnableIncomingEmailIssueCreation": false,
+      "MaxNumberOfSendingRetries": 3,
+      "SecondsToSleepAfterCheckingIncomingEmail": 300
+    }
+  }
+}
+```
 
-\<RANT>
-Here we are in the year 2020 and Microsoft adopted a format for configuration files, "appsettings.json", that does *NOT* support comments. It makes me miss the ".ini" files from Windows 3.1 from the early 90s.
-\</RANT>
+##### User Registration Settings
+```json
+{
+  "Budoco": {
+    "UserRegistration": {
+      "NewUserStartsInactive": true,
+      "NewUserStartsReportOnly": true,
+      "RegistrationRequestExpirationInHours": 24,
+      "InviteUserExpirationInHours": 168
+    }
+  }
+}
+```
+
+##### Custom Fields Configuration
+```json
+{
+  "Budoco": {
+    "CustomFields": {
+      "Field1": {
+        "Enabled": false,
+        "LabelSingular": "Priority",
+        "LabelPlural": "Priorities"
+      },
+      "Field2": {
+        "Enabled": false,
+        "LabelSingular": "Category",
+        "LabelPlural": "Categories"
+      }
+      // ... up to Field6
+    }
+  }
+}
+```
+
+##### Security Settings
+```json
+{
+  "Budoco": {
+    "Security": {
+      "CheckForDangerousSqlKeywords": true,
+      "DangerousSqlKeywords": "alter,copy,create,createdb,createrole,createuser,delete,drop,exec,execute,grant,insert,update"
+    }
+  }
+}
+```
+
+##### Logging Configuration
+```json
+{
+  "Budoco": {
+    "Logging": {
+      "LogFileFolder": "budoco_logs",
+      "LogLevelMicrosoft": "Warning",
+      "LogLevelBudoco": "Information",
+      "LogLevelPostgres": "Warning"
+    }
+  }
+}
+```
+
+##### Debug Settings (Development Only)
+```json
+{
+  "Budoco": {
+    "Debug": {
+      "SkipSendingEmails": true,
+      "AutoConfirmRegistration": true,
+      "EnableRunSql": false,
+      "SkipDeleteOfIncomingEmails": false,
+      "PathToEmailFile": "",
+      "FolderToSaveEmails": ""
+    }
+  }
+}
+```
+
+#### Environment-Specific Configuration
+
+For development, create or modify `appsettings.Development.json`:
+```json
+{
+  "Budoco": {
+    "Debug": {
+      "SkipSendingEmails": true,
+      "AutoConfirmRegistration": true
+    },
+    "Logging": {
+      "LogLevelBudoco": "Debug"
+    }
+  }
+}
+```
+
+For production, use `appsettings.Production.json` with secure settings:
+```json
+{
+  "ConnectionStrings": {
+    "PostgreSQL": "Host=your-prod-server;Database=budoco;Username=budoco_user;Password=secure_password;SSL Mode=Require"
+  },
+  "Budoco": {
+    "Debug": {
+      "SkipSendingEmails": false,
+      "AutoConfirmRegistration": false,
+      "EnableRunSql": false
+    }
+  }
+}
+```
+
+#### Migration from budoco_config_active.txt
+
+If you're upgrading from an older version that used `budoco_config_active.txt`, the application now uses the modern ASP.NET Core configuration system. Your old configuration file is no longer needed, and all settings should be moved to the appropriate `appsettings.json` files.
 
 ## Running Budoco
 
@@ -163,7 +340,7 @@ For testing:
 dotnet run
 ```
 
-Login as admin/admin. You will be redirected to a reset password page. If you are just playing around and want to create more users, set "DebugAutoConfirmRegistration" to 1 in budoco_config_active.txt to SKIP the step where a user would have to confirm registration by clicking on a link in an email. Change the setting back when you are running it for real.
+Login as admin/admin. You will be redirected to a reset password page. If you are just playing around and want to create more users, set `"AutoConfirmRegistration": true` in the `Budoco:Debug` section of `appsettings.Development.json` to SKIP the step where a user would have to confirm registration by clicking on a link in an email. Change the setting back when you are running it for real.
 
 For production I recommend that you use budoco with nginx. (Corey TODO: explain this more)
 
@@ -171,7 +348,7 @@ For production I recommend that you use budoco with nginx. (Corey TODO: explain 
 
 The philosophy of both old BugTracker.NET and new Budoco is that they are easy to get started with but highly customizable. To get to know Buduco first try running it loaded with demo data (Corey TODO explain how to do this) and then take a tour. This should just take a few minutes:
 
-* Read the comments in budoco_config_example.txt to get an overview of the customizations controlled via config. Experiment with some of the customization settings.
+* Review the configuration options in the README above to get an overview of the customizations available. Experiment with some of the customization settings in your `appsettings.json` files.
 
 * Visit the "Issues" page and try the different views.
 

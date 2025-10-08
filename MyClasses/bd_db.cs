@@ -1,6 +1,6 @@
 using System;
 using System.Data;
-using Npgsql;
+using System.Data.Common;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;
@@ -24,35 +24,27 @@ namespace budoco
 
         static string date_format;
 
-        // "static constructor"
-        public static string get_connection_string()
+        // Initialize date format
+        static bd_db()
         {
-            // don't just get it once, because we don't want to force restart for new config vals
             date_format = bd_config.get(bd_config.DateFormat);
-
-            //"server=127.0.0.1;database=budoco;user id='postgres';password='password';"
-
-            string connection_string = "server=" + bd_config.get(bd_config.DbServer);
-            connection_string += ";database=" + bd_config.get(bd_config.DbDatabase);
-            connection_string += ";user id=" + bd_config.get(bd_config.DbUser);
-            connection_string += ";password='" + bd_config.get(bd_config.DbPassword);
-            connection_string += "'";
-            return connection_string;
         }
 
-        public static DataTable get_datatable(string sql, Dictionary<string, dynamic> sql_parameters = null)
+        public static DataTable get_datatable(string sql, Dictionary<string, dynamic> parameters = null)
         {
-            log_sql(sql, sql_parameters);
-
-            DataSet ds = new DataSet();
-
-            using (var conn = new NpgsqlConnection(get_connection_string()))
+            var provider = DatabaseProviderFactory.GetProvider();
+            
+            using (var connection = provider.CreateConnection())
             {
-                var cmd = create_command(conn, sql, sql_parameters);
-                var da = new NpgsqlDataAdapter(cmd);
-                da.Fill(ds);
-
-                return ds.Tables[0];
+                using (var cmd = provider.CreateCommand(connection, sql, parameters))
+                {
+                    using (var da = provider.CreateDataAdapter(cmd))
+                    {
+                        var dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
             }
         }
 
@@ -73,10 +65,14 @@ namespace budoco
         public static string exec(string sql, Dictionary<string, dynamic> sql_parameters = null)
         {
             log_sql(sql, sql_parameters);
-            using (var conn = new NpgsqlConnection(get_connection_string()))
+            var provider = DatabaseProviderFactory.GetProvider();
+            
+            using (var connection = provider.CreateConnection())
             {
-                var cmd = create_command(conn, sql, sql_parameters);
-                cmd.ExecuteNonQuery();
+                using (var cmd = provider.CreateCommand(connection, sql, sql_parameters))
+                {
+                    cmd.ExecuteNonQuery();
+                }
             }
             return null;
         }
@@ -84,11 +80,15 @@ namespace budoco
         public static object exec_scalar(string sql, Dictionary<string, dynamic> sql_parameters = null)
         {
             log_sql(sql, sql_parameters);
-            using (var conn = new NpgsqlConnection(get_connection_string()))
+            var provider = DatabaseProviderFactory.GetProvider();
+            
+            using (var connection = provider.CreateConnection())
             {
-                var cmd = create_command(conn, sql, sql_parameters);
-                var result = cmd.ExecuteScalar();
-                return result;
+                using (var cmd = provider.CreateCommand(connection, sql, sql_parameters))
+                {
+                    var result = cmd.ExecuteScalar();
+                    return result;
+                }
             }
         }
 
@@ -130,24 +130,7 @@ namespace budoco
             }
         }
 
-        static NpgsqlCommand create_command(
-            NpgsqlConnection conn,
-            string sql,
-            Dictionary<string, dynamic> sql_parameters = null)
-        {
-            conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-            if (sql_parameters is not null)
-            {
-                foreach (KeyValuePair<string, dynamic> pair in sql_parameters)
-                {
 
-                    cmd.Parameters.AddWithValue(pair.Key, pair.Value);
-                }
-            }
-            return cmd;
-
-        }
 
         static void log_sql(string sql, Dictionary<string, dynamic> sql_parameters = null)
         {
@@ -185,14 +168,18 @@ namespace budoco
         {
             log_sql(sql, null);
             byte[] bytea;
-            using (var conn = new NpgsqlConnection(get_connection_string()))
+            var provider = DatabaseProviderFactory.GetProvider();
+            
+            using (var connection = provider.CreateConnection())
             {
-                var cmd = create_command(conn, sql, null);
-                var reader = await cmd.ExecuteReaderAsync();
-                await reader.ReadAsync();
-                bytea = (byte[])reader[0];
-                await reader.CloseAsync();
-                return bytea;
+                using (var cmd = provider.CreateCommand(connection, sql, null))
+                {
+                    var reader = await cmd.ExecuteReaderAsync();
+                    await reader.ReadAsync();
+                    bytea = (byte[])reader[0];
+                    await reader.CloseAsync();
+                    return bytea;
+                }
             }
         }
 

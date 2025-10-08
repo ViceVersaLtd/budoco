@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -74,18 +74,20 @@ namespace budoco.Pages
 
             if (id == 0)
             {
-                string sql = @"insert into custom_$ 
-                (c$_name, c$_is_active, c$_is_default)
-                values (@name, @is_active, @is_default)
-                returning c$_id";
+                var tableName = $"custom_{field}";
+                var columns = new Dictionary<string, dynamic>
+                {
+                    [$"c{field}_name"] = name,
+                    [$"c{field}_is_active"] = is_active,
+                    [$"c{field}_is_default"] = is_default
+                };
 
-                sql = sql.Replace("$", field.ToString());
+                string sql = bd_sql_builder.BuildInsertWithReturnId(tableName, columns, $"c{field}_id");
 
                 var dict = new Dictionary<string, dynamic>();
-
-                dict["@name"] = name;
-                dict["@is_active"] = is_active;
-                dict["@is_default"] = is_default;
+                dict["@" + $"c{field}_name"] = name;
+                dict["@" + $"c{field}_is_active"] = is_active;
+                dict["@" + $"c{field}_is_default"] = is_default;
 
                 id = (int)bd_db.exec_scalar(sql, dict);
                 bd_util.set_flash_msg(HttpContext, bd_util.CREATE_WAS_SUCCESSFUL);

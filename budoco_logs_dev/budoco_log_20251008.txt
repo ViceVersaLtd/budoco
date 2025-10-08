@@ -1,0 +1,212 @@
+17:47:57.4757 INF bd 2 Budoco:Application:AppName:Budoco (Development)
+17:47:57.4757 INF bd 2 Budoco:Application:CustomCssFilename:custom_css_example.css
+17:47:57.4757 INF bd 2 Budoco:Application:DateFormat:yyyy-MM-dd HH:mm
+17:47:57.4757 INF bd 2 Budoco:Application:RowsPerPage:30
+17:47:57.4757 INF bd 2 Budoco:Application:UseCustomCss:False
+17:47:57.4757 INF bd 2 Budoco:Application:UseDeveloperExceptionPage:True
+17:47:57.4757 INF bd 2 Budoco:Application:WebsiteUrlRootWithoutSlash:http://localhost:5000
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field1:Enabled:True
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field1:LabelPlural:Statuses
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field1:LabelSingular:Status
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field2:Enabled:True
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field2:LabelPlural:Priorities
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field2:LabelSingular:Priority
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field3:Enabled:False
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field3:LabelPlural:Colors
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field3:LabelSingular:Color
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field4:Enabled:True
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field4:LabelPlural:Categories
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field4:LabelSingular:Category
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field5:Enabled:False
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field5:LabelPlural:Fives
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field5:LabelSingular:Five
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field6:Enabled:False
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field6:LabelPlural:Sixes
+17:47:57.4757 INF bd 2 Budoco:CustomFields:Field6:LabelSingular:Six
+17:47:57.4757 INF bd 2 Budoco:DatabaseType:SqlServer
+17:47:57.4757 INF bd 2 Budoco:Debug:AutoConfirmRegistration:True
+17:47:57.4757 INF bd 2 Budoco:Debug:EnableRunSql:True
+17:47:57.4757 INF bd 2 Budoco:Debug:FolderToSaveEmails:budoco_logs_dev/emails
+17:47:57.4757 INF bd 2 Budoco:Debug:PathToEmailFile:
+17:47:57.4757 INF bd 2 Budoco:Debug:SkipDeleteOfIncomingEmails:True
+17:47:57.4757 INF bd 2 Budoco:Debug:SkipSendingEmails:True
+17:47:57.4757 INF bd 2 Budoco:DebugWhatEnvIsThis:appsettings.Development.json
+17:47:57.4757 INF bd 2 Budoco:Email:EnableIncomingEmail:False
+17:47:57.4757 INF bd 2 Budoco:Email:EnableIncomingEmailIssueCreation:False
+17:47:57.4757 INF bd 2 Budoco:Email:Imap:Host:imap.gmail.com
+17:47:57.4757 INF bd 2 Budoco:Email:Imap:Password:YOUR_DEV_PASSWORD
+17:47:57.4757 INF bd 2 Budoco:Email:Imap:Port:993
+17:47:57.4757 INF bd 2 Budoco:Email:Imap:User:YOUR_DEV_ACCOUNT@gmail.com
+17:47:57.4757 INF bd 2 Budoco:Email:IssueEmailPreamble:Reply to this email directly or view issue on Budoco at $URL
+17:47:57.4757 INF bd 2 Budoco:Email:MaxNumberOfSendingRetries:3
+17:47:57.4757 INF bd 2 Budoco:Email:OutgoingEmailDisplayName:Budoco Development Team
+17:47:57.4757 INF bd 2 Budoco:Email:SecondsToSleepAfterCheckingIncomingEmail:300
+17:47:57.4757 INF bd 2 Budoco:Email:Smtp:Host:smtp.gmail.com
+17:47:57.4757 INF bd 2 Budoco:Email:Smtp:Password:YOUR_DEV_PASSWORD
+17:47:57.4757 INF bd 2 Budoco:Email:Smtp:Port:465
+17:47:57.4757 INF bd 2 Budoco:Email:Smtp:User:YOUR_DEV_ACCOUNT@gmail.com
+17:47:57.4757 INF bd 2 Budoco:Logging:LogFileFolder:budoco_logs_dev
+17:47:57.4757 INF bd 2 Budoco:Logging:LogLevelBudoco:Debug
+17:47:57.4757 INF bd 2 Budoco:Logging:LogLevelMicrosoft:Information
+17:47:57.4757 INF bd 2 Budoco:Logging:LogLevelPostgres:Information
+17:47:57.4757 INF bd 2 Budoco:Security:CheckForDangerousSqlKeywords:False
+17:47:57.4757 INF bd 2 Budoco:Security:DangerousSqlKeywords:alter,copy,create,createdb,createrole,createuser,delete,drop,exec,execute,grant,insert,update
+17:47:57.4757 INF bd 2 Budoco:UserRegistration:InviteUserExpirationInHours:168
+17:47:57.4757 INF bd 2 Budoco:UserRegistration:NewUserStartsInactive:False
+17:47:57.4757 INF bd 2 Budoco:UserRegistration:NewUserStartsReportOnly:False
+17:47:57.4757 INF bd 2 Budoco:UserRegistration:RegistrationRequestExpirationInHours:24
+17:47:57.4757 INF bd 2 ConnectionStrings:PostgreSQL:Host=127.0.0.1;Database=budoco_dev;Username=postgres;Password=test123
+17:47:57.4757 INF bd 2 ConnectionStrings:SqlServer:Server=(localdb)\MSSQLLocalDB;Database=budoco_dev;Trusted_Connection=true;MultipleActiveResultSets=true
+17:47:57.4757 INF  Starting host
+17:47:57.4757 INF bd 2 Startup
+17:47:57.4757 INF bd 2 bd_config: Configuration initialized with ASP.NET Core IConfiguration
+17:47:57.4757 INF bd 2 appsettings.Development.json
+17:47:57.4757 INF bd 2 SQL 1:select db_version from db_version
+17:48:09.489 FTL  Host terminated unexpectedly
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "budoco_dev" requested by the login. The login failed.
+Login failed for user 'ROGERVV\roger'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at budoco.SqlServerProvider.CreateCommand(DbConnection connection, String sql, Dictionary`2 parameters) in C:\Data\NZDevShed\ViceVersaLtd\budoco\MyClasses\bd_database_provider.cs:line 109
+   at budoco.bd_db.exec_scalar(String sql, Dictionary`2 sql_parameters) in C:\Data\NZDevShed\ViceVersaLtd\budoco\MyClasses\bd_db.cs:line 87
+   at budoco.bd_db.update_db_schema(String content_root_path) in C:\Data\NZDevShed\ViceVersaLtd\budoco\MyClasses\bd_db.cs:line 212
+   at budoco.Startup..ctor(IConfiguration configuration, IWebHostEnvironment env) in C:\Data\NZDevShed\ViceVersaLtd\budoco\Startup.cs:line 30
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.ConstructorInvoker.InvokeDirectByRefWithFewArgs(Span`1 copyOfArgs)
+   at System.Reflection.ConstructorInvoker.InvokeDirectByRef(Object arg1, Object arg2, Object arg3, Object arg4)
+   at System.Reflection.ConstructorInvoker.InvokeImpl(Object arg1, Object arg2, Object arg3, Object arg4)
+   at System.Reflection.ConstructorInvoker.Invoke(Span`1 arguments)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.UseStartup(Type startupType, HostBuilderContext context, IServiceCollection services, Object instance)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.<>c__DisplayClass7_0.<UseStartup>b__0(HostBuilderContext context, IServiceCollection services)
+   at Microsoft.Extensions.Hosting.HostBuilder.InitializeServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at budoco.Program.Main(String[] args) in C:\Data\NZDevShed\ViceVersaLtd\budoco\Program.cs:line 80
+ClientConnectionId:25831d26-d6b6-48eb-9e83-c586ac5f146a
+Error Number:4060,State:1,Class:11
+17:54:41.5441 INF bd 2 Budoco:Application:AppName:Budoco (Development)
+17:54:41.5441 INF bd 2 Budoco:Application:CustomCssFilename:custom_css_example.css
+17:54:41.5441 INF bd 2 Budoco:Application:DateFormat:yyyy-MM-dd HH:mm
+17:54:41.5441 INF bd 2 Budoco:Application:RowsPerPage:30
+17:54:41.5441 INF bd 2 Budoco:Application:UseCustomCss:False
+17:54:41.5441 INF bd 2 Budoco:Application:UseDeveloperExceptionPage:True
+17:54:41.5441 INF bd 2 Budoco:Application:WebsiteUrlRootWithoutSlash:http://localhost:5000
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field1:Enabled:True
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field1:LabelPlural:Statuses
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field1:LabelSingular:Status
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field2:Enabled:True
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field2:LabelPlural:Priorities
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field2:LabelSingular:Priority
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field3:Enabled:False
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field3:LabelPlural:Colors
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field3:LabelSingular:Color
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field4:Enabled:True
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field4:LabelPlural:Categories
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field4:LabelSingular:Category
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field5:Enabled:False
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field5:LabelPlural:Fives
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field5:LabelSingular:Five
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field6:Enabled:False
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field6:LabelPlural:Sixes
+17:54:41.5441 INF bd 2 Budoco:CustomFields:Field6:LabelSingular:Six
+17:54:41.5441 INF bd 2 Budoco:DatabaseType:SqlServer
+17:54:41.5441 INF bd 2 Budoco:Debug:AutoConfirmRegistration:True
+17:54:41.5441 INF bd 2 Budoco:Debug:EnableRunSql:True
+17:54:41.5441 INF bd 2 Budoco:Debug:FolderToSaveEmails:budoco_logs_dev/emails
+17:54:41.5441 INF bd 2 Budoco:Debug:PathToEmailFile:
+17:54:41.5441 INF bd 2 Budoco:Debug:SkipDeleteOfIncomingEmails:True
+17:54:41.5441 INF bd 2 Budoco:Debug:SkipSendingEmails:True
+17:54:41.5441 INF bd 2 Budoco:DebugWhatEnvIsThis:appsettings.Development.json
+17:54:41.5441 INF bd 2 Budoco:Email:EnableIncomingEmail:False
+17:54:41.5441 INF bd 2 Budoco:Email:EnableIncomingEmailIssueCreation:False
+17:54:41.5441 INF bd 2 Budoco:Email:Imap:Host:imap.gmail.com
+17:54:41.5441 INF bd 2 Budoco:Email:Imap:Password:YOUR_DEV_PASSWORD
+17:54:41.5441 INF bd 2 Budoco:Email:Imap:Port:993
+17:54:41.5441 INF bd 2 Budoco:Email:Imap:User:YOUR_DEV_ACCOUNT@gmail.com
+17:54:41.5441 INF bd 2 Budoco:Email:IssueEmailPreamble:Reply to this email directly or view issue on Budoco at $URL
+17:54:41.5441 INF bd 2 Budoco:Email:MaxNumberOfSendingRetries:3
+17:54:41.5441 INF bd 2 Budoco:Email:OutgoingEmailDisplayName:Budoco Development Team
+17:54:41.5441 INF bd 2 Budoco:Email:SecondsToSleepAfterCheckingIncomingEmail:300
+17:54:41.5441 INF bd 2 Budoco:Email:Smtp:Host:smtp.gmail.com
+17:54:41.5441 INF bd 2 Budoco:Email:Smtp:Password:YOUR_DEV_PASSWORD
+17:54:41.5441 INF bd 2 Budoco:Email:Smtp:Port:465
+17:54:41.5441 INF bd 2 Budoco:Email:Smtp:User:YOUR_DEV_ACCOUNT@gmail.com
+17:54:41.5441 INF bd 2 Budoco:Logging:LogFileFolder:budoco_logs_dev
+17:54:41.5441 INF bd 2 Budoco:Logging:LogLevelBudoco:Debug
+17:54:41.5441 INF bd 2 Budoco:Logging:LogLevelMicrosoft:Information
+17:54:41.5441 INF bd 2 Budoco:Logging:LogLevelPostgres:Information
+17:54:41.5441 INF bd 2 Budoco:Security:CheckForDangerousSqlKeywords:False
+17:54:41.5441 INF bd 2 Budoco:Security:DangerousSqlKeywords:alter,copy,create,createdb,createrole,createuser,delete,drop,exec,execute,grant,insert,update
+17:54:41.5441 INF bd 2 Budoco:UserRegistration:InviteUserExpirationInHours:168
+17:54:41.5441 INF bd 2 Budoco:UserRegistration:NewUserStartsInactive:False
+17:54:41.5441 INF bd 2 Budoco:UserRegistration:NewUserStartsReportOnly:False
+17:54:41.5441 INF bd 2 Budoco:UserRegistration:RegistrationRequestExpirationInHours:24
+17:54:41.5441 INF bd 2 ConnectionStrings:PostgreSQL:Host=127.0.0.1;Database=budoco_dev;Username=postgres;Password=test123
+17:54:41.5441 INF bd 2 ConnectionStrings:SqlServer:Server=(localdb)\MSSQLLocalDB;Database=budoco_dev;Trusted_Connection=true;MultipleActiveResultSets=true
+17:54:41.5441 INF  Starting host
+17:54:41.5441 INF bd 2 Startup
+17:54:41.5441 INF bd 2 bd_config: Configuration initialized with ASP.NET Core IConfiguration
+17:54:41.5441 INF bd 2 appsettings.Development.json
+17:54:41.5441 INF bd 2 SQL 1:select db_version from db_version
+17:54:52.5452 FTL  Host terminated unexpectedly
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "budoco_dev" requested by the login. The login failed.
+Login failed for user 'ROGERVV\roger'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at budoco.SqlServerProvider.CreateCommand(DbConnection connection, String sql, Dictionary`2 parameters) in C:\Data\NZDevShed\ViceVersaLtd\budoco\MyClasses\bd_database_provider.cs:line 109
+   at budoco.bd_db.exec_scalar(String sql, Dictionary`2 sql_parameters) in C:\Data\NZDevShed\ViceVersaLtd\budoco\MyClasses\bd_db.cs:line 87
+   at budoco.bd_db.update_db_schema(String content_root_path) in C:\Data\NZDevShed\ViceVersaLtd\budoco\MyClasses\bd_db.cs:line 212
+   at budoco.Startup..ctor(IConfiguration configuration, IWebHostEnvironment env) in C:\Data\NZDevShed\ViceVersaLtd\budoco\Startup.cs:line 30
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.ConstructorInvoker.InvokeDirectByRefWithFewArgs(Span`1 copyOfArgs)
+   at System.Reflection.ConstructorInvoker.InvokeDirectByRef(Object arg1, Object arg2, Object arg3, Object arg4)
+   at System.Reflection.ConstructorInvoker.InvokeImpl(Object arg1, Object arg2, Object arg3, Object arg4)
+   at System.Reflection.ConstructorInvoker.Invoke(Span`1 arguments)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.UseStartup(Type startupType, HostBuilderContext context, IServiceCollection services, Object instance)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.<>c__DisplayClass7_0.<UseStartup>b__0(HostBuilderContext context, IServiceCollection services)
+   at Microsoft.Extensions.Hosting.HostBuilder.InitializeServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at budoco.Program.Main(String[] args) in C:\Data\NZDevShed\ViceVersaLtd\budoco\Program.cs:line 80
+ClientConnectionId:11429007-d91a-47f9-b78d-3e91d28f51dc
+Error Number:4060,State:1,Class:11

@@ -280,7 +280,8 @@ namespace budoco.Pages
             else
             {
                 // get the default org
-                object obj = bd_db.exec_scalar("select og_id from organizations where og_is_default is true order by og_name limit 1");
+                string sql = bd_sql_builder.BuildSelectWithLimit("select og_id from organizations where og_is_default = " + bd_sql_builder.GetBooleanLiteral(true) + " order by og_name", 1);
+                object obj = bd_db.exec_scalar(sql);
                 if (obj is not null)
                 {
                     organization_id = (int)obj;
@@ -348,11 +349,14 @@ namespace budoco.Pages
                 
                 i_organization = @i_organization,
                 i_assigned_to_user = @i_assigned_to_user,
-                i_last_updated_date = CURRENT_TIMESTAMP
-                where i_id = @i_id
-                returning i_last_updated_date";
+                i_last_updated_date = " + bd_sql_builder.GetCurrentTimestamp() + @"
+                where i_id = @i_id";
 
-                DateTime last_updated_date = (DateTime)bd_db.exec_scalar(sql, GetValuesDict());
+                bd_db.exec(sql, GetValuesDict());
+                
+                // Get the updated timestamp
+                DateTime last_updated_date = (DateTime)bd_db.exec_scalar("select i_last_updated_date from issues where i_id = @i_id", 
+                    new Dictionary<string, dynamic> { ["@i_id"] = id });
 
                 WriteHistoryPosts(dr_before, last_updated_date);
 
@@ -635,10 +639,16 @@ namespace budoco.Pages
                 return OnGetPostsAsync();
             }
 
-            var sql = @"insert into posts
-                (p_issue, p_post_type, p_text, p_created_by_user, p_email_to)
-                values(@p_issue, @p_post_type, @p_text, @p_created_by_user, @p_email_to)
-                returning p_id";
+            var columns = new Dictionary<string, dynamic>
+            {
+                ["p_issue"] = "",
+                ["p_post_type"] = "",
+                ["p_text"] = "",
+                ["p_created_by_user"] = "",
+                ["p_email_to"] = ""
+            };
+
+            var sql = bd_sql_builder.BuildInsertWithReturnId("posts", columns, "p_id");
 
             var dict = new Dictionary<string, dynamic>();
 

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -61,16 +61,19 @@ namespace budoco.Pages
 
             if (id == 0)
             {
-                string sql = @"insert into organizations
-                (og_name, og_is_active, og_is_default)
-                values (@name, @is_active, @is_default)
-                returning og_id";
+                var columns = new Dictionary<string, dynamic>
+                {
+                    ["og_name"] = name,
+                    ["og_is_active"] = is_active,
+                    ["og_is_default"] = is_default
+                };
+
+                string sql = bd_sql_builder.BuildInsertWithReturnId("organizations", columns, "og_id");
 
                 var dict = new Dictionary<string, dynamic>();
-
-                dict["@name"] = name;
-                dict["@is_active"] = is_active;
-                dict["@is_default"] = is_default;
+                dict["@og_name"] = name;
+                dict["@og_is_active"] = is_active;
+                dict["@og_is_default"] = is_default;
 
                 id = (int)bd_db.exec_scalar(sql, dict);
                 bd_util.set_flash_msg(HttpContext, bd_util.CREATE_WAS_SUCCESSFUL);
